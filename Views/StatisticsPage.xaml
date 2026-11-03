@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HabitHero.Views.StatisticsPage" Title="Statistics" BackgroundColor="{StaticResource BackgroundLight}">
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="16">
+            <Label Text="Your progress" Style="{StaticResource PageTitle}" />
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="12" RowSpacing="12">
+                <Border Style="{StaticResource CardBorder}">
+                    <VerticalStackLayout><Label Text="⚡ Total XP" Style="{StaticResource MutedText}" /><Label Text="{Binding TotalXp}" Style="{StaticResource StatValue}" /></VerticalStackLayout>
+                </Border>
+                <Border Grid.Column="1" Style="{StaticResource CardBorder}">
+                    <VerticalStackLayout><Label Text="✓ Completions" Style="{StaticResource MutedText}" /><Label Text="{Binding Completed}" Style="{StaticResource StatValue}" /></VerticalStackLayout>
+                </Border>
+                <Border Grid.Row="1" Style="{StaticResource CardBorder}">
+                    <VerticalStackLayout><Label Text="🔥 Current streak" Style="{StaticResource MutedText}" /><Label Text="{Binding Streak}" Style="{StaticResource StatValue}" /></VerticalStackLayout>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource CardBorder}">
+                    <VerticalStackLayout><Label Text="📈 Completion rate" Style="{StaticResource MutedText}" /><Label Text="{Binding CompletionRate}" Style="{StaticResource StatValue}" /></VerticalStackLayout>
+                </Border>
+            </Grid>
+            <Border Style="{StaticResource CardBorder}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Progress to next level" Style="{StaticResource SectionTitle}" />
+                    <ProgressBar Progress="{Binding LevelProgress}" ProgressColor="{StaticResource Primary}" BackgroundColor="{StaticResource Secondary}" />
+                    <Label Text="{Binding NextLevel}" Style="{StaticResource MutedText}" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

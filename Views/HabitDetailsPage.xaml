@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HabitHero.Views.HabitDetailsPage" Title="Habit Details" BackgroundColor="{StaticResource BackgroundLight}">
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="16">
+            <Label Text="{Binding Icon}" FontSize="54" HorizontalOptions="Center" />
+            <Label Text="{Binding Name}" Style="{StaticResource PageTitle}" HorizontalTextAlignment="Center" />
+            <Label Text="{Binding FrequencyAndCategory}" Style="{StaticResource MutedText}" HorizontalTextAlignment="Center" />
+            <Border Style="{StaticResource CardBorder}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="About this habit" Style="{StaticResource SectionTitle}" />
+                    <Label Text="{Binding Description}" Style="{StaticResource BodyText}" />
+                    <Label Text="{Binding CreatedText}" Style="{StaticResource MutedText}" />
+                </VerticalStackLayout>
+            </Border>
+            <Button Text="Mark complete today" Clicked="CompleteClicked" Style="{StaticResource PrimaryButton}" />
+            <Button Text="Edit habit" Clicked="EditClicked" Style="{StaticResource SecondaryButton}" />
+            <Button Text="Delete habit" Clicked="DeleteClicked" Style="{StaticResource DangerButton}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

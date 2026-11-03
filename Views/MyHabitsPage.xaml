@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HabitHero.Views.MyHabitsPage"
+             Title="My Habits"
+             BackgroundColor="{StaticResource BackgroundLight}">
+
+    <Grid Padding="20"
+          RowDefinitions="Auto,Auto,*,Auto"
+          RowSpacing="14">
+
+        <Label Grid.Row="0"
+               Text="Your habits"
+               Style="{StaticResource PageTitle}" />
+
+        <SearchBar Grid.Row="1"
+                   Placeholder="Search habits or categories"
+                   Text="{Binding SearchText}" />
+
+        <CollectionView Grid.Row="2"
+                        ItemsSource="{Binding Habits}"
+                        SelectionMode="Single"
+                        SelectionChanged="HabitSelected">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Style="{StaticResource CardBorder}"
+                            Margin="0,4">
+
+                        <Grid ColumnDefinitions="Auto,*,Auto">
+
+                            <Label Text="{Binding Icon}"
+                                   FontSize="26"
+                                   VerticalOptions="Center" />
+
+                            <VerticalStackLayout Grid.Column="1"
+                                                 Margin="12,0"
+                                                 Spacing="3">
+
+                                <Label Text="{Binding Name}"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource TextPrimary}" />
+
+                                <Label Text="{Binding FrequencyAndCategory}"
+                                       Style="{StaticResource MutedText}" />
+
+                            </VerticalStackLayout>
+
+                            <Label Grid.Column="2"
+                                   Text="›"
+                                   FontSize="28"
+                                   TextColor="{StaticResource Primary}"
+                                   VerticalOptions="Center" />
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Grid.Row="3"
+                Text="Add a habit"
+                Clicked="AddClicked"
+                Style="{StaticResource PrimaryButton}" />
+
+    </Grid>
+</ContentPage>

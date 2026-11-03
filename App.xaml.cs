@@ -1,17 +1,12 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+namespace HabitHero;
 
-namespace HabitHero
+public partial class App : Application
 {
-    public partial class App : Application
-    {
-        public App()
-        {
-            InitializeComponent();
-        }
+    public static Services.HabitDatabase Database { get; } = new();
 
-        protected override Window CreateWindow(IActivationState? activationState)
-        {
-            return new Window(new AppShell());
-        }
+    public App()
+    {
+        InitializeComponent();
+        MainPage = new AppShell();
     }
 }

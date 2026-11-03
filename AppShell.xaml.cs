@@ -1,10 +1,11 @@
-﻿namespace HabitHero
+namespace HabitHero;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+        Routing.RegisterRoute(nameof(Views.HabitDetailsPage), typeof(Views.HabitDetailsPage));
+        Routing.RegisterRoute(nameof(Views.EditHabitPage), typeof(Views.EditHabitPage));
     }
 }

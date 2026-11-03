@@ -1,230 +1,73 @@
 <?xml version="1.0" encoding="utf-8" ?>
-
-<ContentPage
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="HabitHero.Views.DashboardPage"
-    Title="Dashboard"
-    BackgroundColor="{StaticResource BackgroundLight}">
-
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HabitHero.Views.DashboardPage" Title="Dashboard" BackgroundColor="{StaticResource BackgroundLight}">
     <ScrollView>
-        <VerticalStackLayout Padding="24" Spacing="24">
-
+        <VerticalStackLayout Padding="24" Spacing="18">
             <Grid ColumnDefinitions="*,Auto">
-
                 <VerticalStackLayout Spacing="4">
-                    <Label
-                        Text="{Binding Greeting}"
-                        FontSize="26"
-                        FontAttributes="Bold"
-                        TextColor="{StaticResource TextPrimary}" />
-
-                    <Label
-                        Text="{Binding CurrentDate}"
-                        FontSize="14"
-                        TextColor="{StaticResource TextSecondary}" />
+                    <Label Text="{Binding Greeting}" Style="{StaticResource PageTitle}" />
+                    <Label Text="{Binding CurrentDate}" Style="{StaticResource MutedText}" />
                 </VerticalStackLayout>
-
-                <Border
-                    Grid.Column="1"
-                    BackgroundColor="{StaticResource ProfileBadgeBackground}"
-                    StrokeThickness="0"
-                    StrokeShape="RoundRectangle 18"
-                    Padding="12"
-                    VerticalOptions="Center">
-
-                    <Label
-                        Text="👤"
-                        FontSize="24" />
-
+                <Border Grid.Column="1" BackgroundColor="{StaticResource ProfileBadgeBackground}" StrokeThickness="0" StrokeShape="RoundRectangle 18" Padding="12">
+                    <Label Text="👤" FontSize="24" />
                 </Border>
-
             </Grid>
-
-            <Border
-                BackgroundColor="{StaticResource TextPrimary}"
-                StrokeThickness="0"
-                StrokeShape="RoundRectangle 24"
-                Padding="20">
-
-                <VerticalStackLayout Spacing="14">
-
-                    <Label
-                        Text="DAILY PROGRESS"
-                        FontSize="12"
-                        FontAttributes="Bold"
-                        TextColor="{StaticResource ProgressLabel}"
-                        CharacterSpacing="2" />
-
+            <Border BackgroundColor="{StaticResource TextPrimary}" StrokeThickness="0" StrokeShape="RoundRectangle 24" Padding="20">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="DAILY PROGRESS" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource ProgressLabel}" CharacterSpacing="2" />
                     <Grid ColumnDefinitions="*,Auto">
-
-                        <Label
-                            Text="{Binding ProgressText}"
-                            FontSize="21"
-                            FontAttributes="Bold"
-                            TextColor="{StaticResource TextLight}"
-                            VerticalOptions="Center" />
-
-                        <Label
-                            Grid.Column="1"
-                            Text="{Binding ProgressPercentage}"
-                            FontSize="22"
-                            FontAttributes="Bold"
-                            TextColor="{StaticResource ProgressLabel}" />
-
+                        <Label Text="{Binding ProgressText}" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource TextLight}" />
+                        <Label Grid.Column="1" Text="{Binding ProgressPercentage}" FontSize="22" FontAttributes="Bold" TextColor="{StaticResource ProgressLabel}" />
                     </Grid>
-
-                    <ProgressBar
-                        Progress="{Binding DailyProgress}"
-                        ProgressColor="{StaticResource ProgressLabel}"
-                        BackgroundColor="{StaticResource ProgressTrack}"
-                        HeightRequest="9" />
-
-                    <Label
-                        Text="Keep going! You're doing great."
-                        FontSize="13"
-                        TextColor="{StaticResource ProgressDescription}" />
-
+                    <ProgressBar Progress="{Binding Progress}" ProgressColor="{StaticResource ProgressLabel}" BackgroundColor="{StaticResource ProgressTrack}" HeightRequest="9" />
+                    <Label Text="{Binding LevelText}" TextColor="{StaticResource TextLight}" FontSize="13" />
                 </VerticalStackLayout>
-
             </Border>
-
-            <Grid
-                ColumnDefinitions="*,*"
-                ColumnSpacing="14">
-
-                <Border
-                    BackgroundColor="{StaticResource StreakCardBackground}"
-                    StrokeThickness="0"
-                    StrokeShape="RoundRectangle 20"
-                    Padding="16">
-
-                    <VerticalStackLayout Spacing="8">
-
-                        <Label
-                            Text="🔥"
-                            FontSize="25" />
-
-                        <Label
-                            Text="{Binding CurrentStreakText}"
-                            FontSize="23"
-                            FontAttributes="Bold"
-                            TextColor="{StaticResource StreakText}" />
-
-                        <Label
-                            Text="Current streak"
-                            FontSize="12"
-                            TextColor="{StaticResource StreakDescription}" />
-
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                <Border BackgroundColor="{StaticResource StreakCardBackground}" StrokeThickness="0" StrokeShape="RoundRectangle 20" Padding="16">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="🔥" FontSize="24" />
+                        <Label Text="{Binding StreakText}" FontSize="22" FontAttributes="Bold" TextColor="{StaticResource StreakText}" />
+                        <Label Text="Current streak" Style="{StaticResource MutedText}" />
                     </VerticalStackLayout>
-
                 </Border>
-
-                <Border
-                    Grid.Column="1"
-                    BackgroundColor="{StaticResource SuccessLight}"
-                    StrokeThickness="0"
-                    StrokeShape="RoundRectangle 20"
-                    Padding="16">
-
-                    <VerticalStackLayout Spacing="8">
-
-                        <Label
-                            Text="⚡"
-                            FontSize="25" />
-
-                        <Label
-                            Text="{Binding ExperiencePointsText}"
-                            FontSize="23"
-                            FontAttributes="Bold"
-                            TextColor="{StaticResource ExperienceText}" />
-
-                        <Label
-                            Text="Experience points"
-                            FontSize="12"
-                            TextColor="{StaticResource ExperienceDescription}" />
-
+                <Border Grid.Column="1" BackgroundColor="{StaticResource SuccessLight}" StrokeThickness="0" StrokeShape="RoundRectangle 20" Padding="16">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="⚡" FontSize="24" />
+                        <Label Text="{Binding XpText}" FontSize="22" FontAttributes="Bold" TextColor="{StaticResource ExperienceText}" />
+                        <Label Text="Experience points" Style="{StaticResource MutedText}" />
                     </VerticalStackLayout>
-
                 </Border>
-
             </Grid>
-
             <Grid ColumnDefinitions="*,Auto">
-
-                <Label
-                    Text="Today's Habits"
-                    FontSize="21"
-                    FontAttributes="Bold"
-                    TextColor="{StaticResource TextPrimary}"
-                    VerticalOptions="Center" />
-
-                <Button
-                    Grid.Column="1"
-                    Text="View all"
-                    FontSize="13"
-                    TextColor="{StaticResource Primary}"
-                    BackgroundColor="Transparent"
-                    Padding="8,4" />
-
+                <Label Text="Today's Habits" Style="{StaticResource SectionTitle}" VerticalOptions="Center" />
+                <Button Grid.Column="1" Text="View all" Clicked="ViewAllClicked" Style="{StaticResource TextButton}" />
             </Grid>
-
-            <CollectionView
-    ItemsSource="{Binding Habits}"
-    SelectionMode="None">
-
+            <CollectionView ItemsSource="{Binding Habits}" SelectionMode="None">
                 <CollectionView.ItemsLayout>
-                    <LinearItemsLayout
-            Orientation="Vertical"
-            ItemSpacing="12" />
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
                 </CollectionView.ItemsLayout>
-
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Border
-                Style="{StaticResource CardBorder}">
-
-                            <Grid ColumnDefinitions="Auto,*,Auto">
-
-                                <Label
-                        Text="{Binding Icon}"
-                        FontSize="25"
-                        VerticalOptions="Center" />
-
-                                <VerticalStackLayout
-                        Grid.Column="1"
-                        Margin="12,0"
-                        VerticalOptions="Center"
-                        Spacing="3">
-
-                                    <Label
-                            Text="{Binding Name}"
-                            FontSize="15"
-                            FontAttributes="Bold"
-                            TextColor="{StaticResource TextPrimary}" />
-
-                                    <Label
-                            Text="{Binding FrequencyAndCategory}"
-                            FontSize="12"
-                            TextColor="{StaticResource TextSecondary}" />
-
+                        <Border Style="{StaticResource CardBorder}">
+                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                                <Label Text="{Binding Icon}" FontSize="25" VerticalOptions="Center" />
+                                <VerticalStackLayout Grid.Column="1" Spacing="3" VerticalOptions="Center">
+                                    <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="{StaticResource TextPrimary}" />
+                                    <Label Text="{Binding FrequencyAndCategory}" Style="{StaticResource MutedText}" />
                                 </VerticalStackLayout>
-
-                                <CheckBox
-                        Grid.Column="2"
-                        Color="{StaticResource Primary}"
-                        VerticalOptions="Center"
-                        IsChecked="{Binding IsCompleted}" />
-
+                                <CheckBox Grid.Column="2" Color="{StaticResource Primary}" IsChecked="{Binding IsCompletedToday, Mode=OneWay}" CheckedChanged="HabitChecked" VerticalOptions="Center" />
                             </Grid>
-
                         </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-
             </CollectionView>
-
+            <Border Style="{StaticResource CardBorder}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Daily motivation" Style="{StaticResource SectionTitle}" />
+                    <Label Text="{Binding Message}" Style="{StaticResource BodyText}" />
+                </VerticalStackLayout>
+            </Border>
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

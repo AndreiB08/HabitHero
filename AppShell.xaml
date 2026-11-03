@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<Shell
-    x:Class="HabitHero.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:views="clr-namespace:HabitHero.Views"
-    Title="HabitHero">
-
-    <ShellContent
-        Title="Dashboard"
-        ContentTemplate="{DataTemplate views:DashboardPage}"
-        Route="DashboardPage" />
-
+<Shell x:Class="HabitHero.AppShell"
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:HabitHero.Views"
+       Title="HabitHero"
+       FlyoutBehavior="Flyout">
+    <FlyoutItem Title="Dashboard" Route="dashboard">
+        <ShellContent ContentTemplate="{DataTemplate views:DashboardPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="My Habits" Route="habits">
+        <ShellContent ContentTemplate="{DataTemplate views:MyHabitsPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Add Habit" Route="addhabit">
+        <ShellContent ContentTemplate="{DataTemplate views:AddHabitPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Calendar" Route="calendar">
+        <ShellContent ContentTemplate="{DataTemplate views:CalendarPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Statistics" Route="statistics">
+        <ShellContent ContentTemplate="{DataTemplate views:StatisticsPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Achievements" Route="achievements">
+        <ShellContent ContentTemplate="{DataTemplate views:AchievementsPage}" />
+    </FlyoutItem>
 </Shell>

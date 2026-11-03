@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HabitHero.Views.CalendarPage" Title="Calendar" BackgroundColor="{StaticResource BackgroundLight}">
+    <VerticalStackLayout Padding="24" Spacing="16">
+        <Label Text="Your calendar" Style="{StaticResource PageTitle}" />
+        <DatePicker Date="{Binding SelectedDate}" />
+        <Border Style="{StaticResource CardBorder}">
+            <Label Text="{Binding Summary}" Style="{StaticResource SectionTitle}" />
+        </Border>
+        <CollectionView ItemsSource="{Binding Entries}">
+            <CollectionView.EmptyView>
+                <Label Text="No habits completed on this date." Style="{StaticResource MutedText}" HorizontalOptions="Center" Padding="20" />
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Style="{StaticResource CardBorder}" Margin="0,4">
+                        <Label Text="{Binding .}" Style="{StaticResource BodyText}" />
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

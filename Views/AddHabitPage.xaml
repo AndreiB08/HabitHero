@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HabitHero.Views.AddHabitPage"
+             Title="Add Habit"
+             BackgroundColor="{StaticResource BackgroundLight}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="14">
+
+            <Label Text="Create a habit"
+                   Style="{StaticResource PageTitle}" />
+
+            <Label Text="Habit name"
+                   Style="{StaticResource FieldLabel}" />
+
+            <Entry Text="{Binding Name}"
+                   Placeholder="e.g. Walk 30 minutes" />
+
+            <Label Text="Icon (emoji)"
+                   Style="{StaticResource FieldLabel}" />
+
+            <Entry Text="{Binding Icon}"
+                   Placeholder="✨" />
+
+            <Label Text="Category"
+                   Style="{StaticResource FieldLabel}" />
+
+            <Picker Title="Choose category"
+                    SelectedItem="{Binding Category}">
+                <Picker.Items>
+                    <x:String>Health</x:String>
+                    <x:String>Fitness</x:String>
+                    <x:String>Learning</x:String>
+                    <x:String>Mindfulness</x:String>
+                    <x:String>Personal</x:String>
+                    <x:String>Productivity</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Frequency"
+                   Style="{StaticResource FieldLabel}" />
+
+            <Picker Title="Choose frequency"
+                    SelectedItem="{Binding Frequency}">
+                <Picker.Items>
+                    <x:String>Daily</x:String>
+                    <x:String>Weekdays</x:String>
+                    <x:String>Weekly</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Description"
+                   Style="{StaticResource FieldLabel}" />
+
+            <Editor Text="{Binding Description}"
+                    Placeholder="What will this habit help you achieve?"
+                    AutoSize="TextChanges" />
+
+            <Button Text="Save habit"
+                    Clicked="SaveClicked"
+                    Style="{StaticResource PrimaryButton}" />
+
+            <Button Text="Cancel"
+                    Clicked="CancelClicked"
+                    Style="{StaticResource SecondaryButton}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,33 +1,23 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-
-<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-
+<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <Color x:Key="Primary">#7950C8</Color>
     <Color x:Key="PrimaryDark">#5E3BA3</Color>
     <Color x:Key="PrimaryLight">#B99AFF</Color>
-
     <Color x:Key="Secondary">#DFD8F7</Color>
     <Color x:Key="Tertiary">#2B0B98</Color>
-
     <Color x:Key="BackgroundLight">#F7F5FB</Color>
     <Color x:Key="SurfaceLight">#FFFFFF</Color>
     <Color x:Key="BackgroundDark">#17132B</Color>
     <Color x:Key="SurfaceDark">#292039</Color>
-
     <Color x:Key="TextPrimary">#292039</Color>
     <Color x:Key="TextSecondary">#82788F</Color>
     <Color x:Key="TextLight">#FFFFFF</Color>
-
     <Color x:Key="Success">#29965B</Color>
     <Color x:Key="SuccessLight">#E4F3E9</Color>
-
     <Color x:Key="BorderColor">#ECE7F2</Color>
-
     <Color x:Key="White">#FFFFFF</Color>
+    <Color x:Key="Transparent">#00000000</Color>
     <Color x:Key="Black">#000000</Color>
-
     <Color x:Key="Gray100">#F5F5F5</Color>
     <Color x:Key="Gray200">#E5E5E5</Color>
     <Color x:Key="Gray300">#D4D4D4</Color>
@@ -36,30 +26,18 @@
     <Color x:Key="Gray600">#525252</Color>
     <Color x:Key="Gray900">#212121</Color>
     <Color x:Key="Gray950">#141414</Color>
-
     <Color x:Key="PrimaryDarkText">#242424</Color>
     <Color x:Key="SecondaryDarkText">#9880E5</Color>
     <Color x:Key="MidnightBlue">#23283B</Color>
     <Color x:Key="Magenta">#D600AA</Color>
     <Color x:Key="OffBlack">#1F1F1F</Color>
-
     <Color x:Key="ProfileBadgeBackground">#EAE2F7</Color>
-
     <Color x:Key="ProgressTrack">#514563</Color>
     <Color x:Key="ProgressLabel">#C8B5E8</Color>
-    <Color x:Key="ProgressDescription">#D0C4E0</Color>
-
     <Color x:Key="StreakCardBackground">#EEE6FA</Color>
     <Color x:Key="StreakText">#38234F</Color>
     <Color x:Key="StreakDescription">#79698B</Color>
-
     <Color x:Key="ExperienceText">#205A3A</Color>
     <Color x:Key="ExperienceDescription">#557B61</Color>
-
-    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}" />
-    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}" />
-    <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}" />
-    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}" />
-    <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}" />
-
+    <Color x:Key="Danger">#B8324A</Color>
 </ResourceDictionary>
