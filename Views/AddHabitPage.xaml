@@ -21,7 +21,10 @@
                    Style="{StaticResource FieldLabel}" />
 
             <Entry Text="{Binding Icon}"
-                   Placeholder="✨" />
+                   Placeholder="✨"
+                   TextColor="{StaticResource TextPrimary}"
+                   PlaceholderColor="{StaticResource TextSecondary}"
+                   BackgroundColor="{StaticResource SurfaceLight}" />
 
             <Label Text="Category"
                    Style="{StaticResource FieldLabel}" />

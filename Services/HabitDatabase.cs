@@ -133,4 +133,66 @@ public class HabitDatabase
             }
         }
     }
+
+    public async Task<List<(string Day, int Count)>> GetWeeklyActivityAsync()
+    {
+        var db = await DbAsync();
+        var today = DateTime.Today;
+        var start = today.AddDays(-6);
+        var end = today.AddDays(1);
+
+        var logs = await db.Table<HabitLog>()
+            .Where(x => x.LogDate >= start && x.LogDate < end)
+            .ToListAsync();
+
+        var result = new List<(string Day, int Count)>();
+
+        for (int i = 0; i < 7; i++)
+        {
+            var date = start.AddDays(i);
+            var count = logs.Count(x => x.LogDate.Date == date);
+
+            result.Add((date.ToString("ddd"), count));
+        }
+
+        return result;
+    }
+
+
+    public async Task<List<(string Category, int Count)>> GetCategoryDistributionAsync()
+    {
+        var db = await DbAsync();
+        var habits = await db.Table<Habit>().ToListAsync();
+        var logs = await db.Table<HabitLog>().ToListAsync();
+
+        var result = logs
+            .Join(habits,
+                log => log.HabitId,
+                habit => habit.Id,
+                (log, habit) => habit.Category)
+            .GroupBy(category => category)
+            .Select(group => (group.Key, group.Count()))
+            .ToList();
+
+        return result;
+    }
+
+    public async Task<List<(string Date, int Xp)>> GetXpProgressAsync()
+    {
+        var db = await DbAsync();
+        var logs = await db.Table<HabitLog>()
+            .OrderBy(x => x.LogDate)
+            .ToListAsync();
+
+        var result = logs
+            .GroupBy(log => log.LogDate.Date)
+            .OrderBy(group => group.Key)
+            .Select(group => (
+                group.Key.ToString("dd/MM"),
+                group.Sum(log => log.ExperienceAwarded)))
+            .ToList();
+
+        return result;
+    }
+
 }

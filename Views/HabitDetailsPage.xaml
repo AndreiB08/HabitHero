@@ -3,7 +3,10 @@
              x:Class="HabitHero.Views.HabitDetailsPage" Title="Habit Details" BackgroundColor="{StaticResource BackgroundLight}">
     <ScrollView>
         <VerticalStackLayout Padding="24" Spacing="16">
-            <Label Text="{Binding Icon}" FontSize="54" HorizontalOptions="Center" />
+            <Label Text="{Binding Icon}"
+                FontSize="54"
+                TextColor="{StaticResource TextPrimary}"
+                HorizontalOptions="Center" />
             <Label Text="{Binding Name}" Style="{StaticResource PageTitle}" HorizontalTextAlignment="Center" />
             <Label Text="{Binding FrequencyAndCategory}" Style="{StaticResource MutedText}" HorizontalTextAlignment="Center" />
             <Border Style="{StaticResource CardBorder}">

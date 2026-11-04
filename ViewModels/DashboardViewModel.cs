@@ -28,7 +28,7 @@ public class DashboardViewModel : INotifyPropertyChanged
     public string XpText => $"{Xp} XP";
     public string LevelText => $"Level {Xp / 100 + 1}";
     public int Streak { get => _streak; set { _streak = value; Changed(); Changed(nameof(StreakText)); } }
-    public string StreakText => $"{Streak} days";
+    public string StreakText => Streak == 1 ? "1 day" : $"{Streak} days";
     public string Message { get => _message; set { _message = value; Changed(); } }
 
     public DashboardViewModel(HabitDatabase db) { _db = db; }

@@ -4,25 +4,90 @@
     <ScrollView>
         <VerticalStackLayout Padding="24" Spacing="16">
             <Label Text="Your progress" Style="{StaticResource PageTitle}" />
+
             <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="12" RowSpacing="12">
                 <Border Style="{StaticResource CardBorder}">
-                    <VerticalStackLayout><Label Text="⚡ Total XP" Style="{StaticResource MutedText}" /><Label Text="{Binding TotalXp}" Style="{StaticResource StatValue}" /></VerticalStackLayout>
+                    <VerticalStackLayout>
+                        <Label Text="⚡ Total XP" Style="{StaticResource MutedText}" />
+                        <Label Text="{Binding TotalXp}" Style="{StaticResource StatValue}" />
+                    </VerticalStackLayout>
                 </Border>
                 <Border Grid.Column="1" Style="{StaticResource CardBorder}">
-                    <VerticalStackLayout><Label Text="✓ Completions" Style="{StaticResource MutedText}" /><Label Text="{Binding Completed}" Style="{StaticResource StatValue}" /></VerticalStackLayout>
+                    <VerticalStackLayout>
+                        <Label Text="✓ Completions" Style="{StaticResource MutedText}" />
+                        <Label Text="{Binding Completed}" Style="{StaticResource StatValue}" />
+                    </VerticalStackLayout>
                 </Border>
                 <Border Grid.Row="1" Style="{StaticResource CardBorder}">
-                    <VerticalStackLayout><Label Text="🔥 Current streak" Style="{StaticResource MutedText}" /><Label Text="{Binding Streak}" Style="{StaticResource StatValue}" /></VerticalStackLayout>
+                    <VerticalStackLayout>
+                        <Label Text="🔥 Current streak" Style="{StaticResource MutedText}" />
+                        <Label Text="{Binding Streak}" Style="{StaticResource StatValue}" />
+                    </VerticalStackLayout>
                 </Border>
                 <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource CardBorder}">
-                    <VerticalStackLayout><Label Text="📈 Completion rate" Style="{StaticResource MutedText}" /><Label Text="{Binding CompletionRate}" Style="{StaticResource StatValue}" /></VerticalStackLayout>
+                    <VerticalStackLayout>
+                        <Label Text="📈 Completion rate" Style="{StaticResource MutedText}" />
+                        <Label Text="{Binding CompletionRate}" Style="{StaticResource StatValue}" />
+                    </VerticalStackLayout>
                 </Border>
             </Grid>
+
             <Border Style="{StaticResource CardBorder}">
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Progress to next level" Style="{StaticResource SectionTitle}" />
                     <ProgressBar Progress="{Binding LevelProgress}" ProgressColor="{StaticResource Primary}" BackgroundColor="{StaticResource Secondary}" />
                     <Label Text="{Binding NextLevel}" Style="{StaticResource MutedText}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource CardBorder}">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Weekly Activity" Style="{StaticResource SectionTitle}" />
+                    <CollectionView ItemsSource="{Binding WeeklyActivity}" SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="45,*,35" ColumnSpacing="10" Padding="0,5">
+                                    <Label Text="{Binding Day}" Style="{StaticResource MutedText}" VerticalOptions="Center" />
+                                    <ProgressBar Grid.Column="1" Progress="{Binding Progress}" ProgressColor="{StaticResource Primary}" BackgroundColor="{StaticResource Secondary}" VerticalOptions="Center" />
+                                    <Label Grid.Column="2" Text="{Binding Count}" Style="{StaticResource MutedText}" HorizontalTextAlignment="End" VerticalOptions="Center" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource CardBorder}">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Category Distribution" Style="{StaticResource SectionTitle}" />
+                    <CollectionView ItemsSource="{Binding CategoryDistribution}" SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="90,*,35" ColumnSpacing="10" Padding="0,5">
+                                    <Label Text="{Binding Category}" Style="{StaticResource MutedText}" VerticalOptions="Center" />
+                                    <ProgressBar Grid.Column="1" Progress="{Binding Progress}" ProgressColor="{StaticResource Primary}" BackgroundColor="{StaticResource Secondary}" VerticalOptions="Center" />
+                                    <Label Grid.Column="2" Text="{Binding Count}" Style="{StaticResource MutedText}" HorizontalTextAlignment="End" VerticalOptions="Center" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource CardBorder}">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="XP Progress" Style="{StaticResource SectionTitle}" />
+                    <CollectionView ItemsSource="{Binding XpProgress}" SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="55,*,45" ColumnSpacing="10" Padding="0,5">
+                                    <Label Text="{Binding Date}" Style="{StaticResource MutedText}" VerticalOptions="Center" />
+                                    <ProgressBar Grid.Column="1" Progress="{Binding Progress}" ProgressColor="{StaticResource Primary}" BackgroundColor="{StaticResource Secondary}" VerticalOptions="Center" />
+                                    <Label Grid.Column="2" Text="{Binding Xp}" Style="{StaticResource MutedText}" HorizontalTextAlignment="End" VerticalOptions="Center" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

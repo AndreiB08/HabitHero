@@ -14,8 +14,12 @@
                Style="{StaticResource PageTitle}" />
 
         <SearchBar Grid.Row="1"
-                   Placeholder="Search habits or categories"
-                   Text="{Binding SearchText}" />
+           Placeholder="Search habits or categories"
+           Text="{Binding SearchText}"
+           TextColor="{StaticResource TextPrimary}"
+           PlaceholderColor="{StaticResource TextSecondary}"
+           BackgroundColor="{StaticResource SurfaceLight}"
+           CancelButtonColor="{StaticResource Primary}" />
 
         <CollectionView Grid.Row="2"
                         ItemsSource="{Binding Habits}"
@@ -30,8 +34,9 @@
                         <Grid ColumnDefinitions="Auto,*,Auto">
 
                             <Label Text="{Binding Icon}"
-                                   FontSize="26"
-                                   VerticalOptions="Center" />
+                               FontSize="26"
+                               TextColor="{StaticResource TextPrimary}"
+                               VerticalOptions="Center" />
 
                             <VerticalStackLayout Grid.Column="1"
                                                  Margin="12,0"
