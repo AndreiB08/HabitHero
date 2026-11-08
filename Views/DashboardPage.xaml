@@ -8,9 +8,7 @@
                     <Label Text="{Binding Greeting}" Style="{StaticResource PageTitle}" />
                     <Label Text="{Binding CurrentDate}" Style="{StaticResource MutedText}" />
                 </VerticalStackLayout>
-                <Border Grid.Column="1" BackgroundColor="{StaticResource ProfileBadgeBackground}" StrokeThickness="0" StrokeShape="RoundRectangle 18" Padding="12">
-                    <Label Text="👤" FontSize="24" />
-                </Border>
+                
             </Grid>
             <Border BackgroundColor="{StaticResource TextPrimary}" StrokeThickness="0" StrokeShape="RoundRectangle 24" Padding="20">
                 <VerticalStackLayout Spacing="12">

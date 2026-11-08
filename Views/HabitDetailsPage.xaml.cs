@@ -20,6 +20,8 @@ public partial class HabitDetailsPage : ContentPage
             Name = _habit.Name,
             Icon = _habit.Icon,
             FrequencyAndCategory = _habit.FrequencyAndCategory,
+            CategoryImage = _habit.CategoryImage,
+            HasCategoryImage = _habit.HasCategoryImage,
             Description = string.IsNullOrWhiteSpace(_habit.Description) ? "No description added yet." : _habit.Description,
             CreatedText = $"Created on {_habit.CreatedAt:dd MMM yyyy}"
         };
@@ -48,6 +50,8 @@ public partial class HabitDetailsPage : ContentPage
         public string Name { get; set; } = string.Empty;
         public string Icon { get; set; } = string.Empty;
         public string FrequencyAndCategory { get; set; } = string.Empty;
+        public string CategoryImage { get; set; } = string.Empty;
+        public bool HasCategoryImage { get; set; }
         public string Description { get; set; } = string.Empty;
         public string CreatedText { get; set; } = string.Empty;
     }

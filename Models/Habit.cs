@@ -16,4 +16,13 @@ public class Habit
     public bool IsCompletedToday { get; set; }
     [Ignore]
     public string FrequencyAndCategory => $"{Frequency} · {Category}";
+    [Ignore]
+    public string CategoryImage => Category switch
+    {
+        "Fitness" => "fitness.jpg",
+        "Learning" => "learning.jpeg",
+        _ => string.Empty
+    };
+    [Ignore]
+    public bool HasCategoryImage => !string.IsNullOrEmpty(CategoryImage);
 }

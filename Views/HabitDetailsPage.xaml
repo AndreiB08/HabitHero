@@ -3,6 +3,11 @@
              x:Class="HabitHero.Views.HabitDetailsPage" Title="Habit Details" BackgroundColor="{StaticResource BackgroundLight}">
     <ScrollView>
         <VerticalStackLayout Padding="24" Spacing="16">
+            <Image Source="{Binding CategoryImage}"
+                   IsVisible="{Binding HasCategoryImage}"
+                   HeightRequest="190"
+                   HorizontalOptions="Fill"
+                   Aspect="AspectFill" />
             <Label Text="{Binding Icon}"
                 FontSize="54"
                 TextColor="{StaticResource TextPrimary}"
